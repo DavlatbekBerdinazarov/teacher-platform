@@ -15,7 +15,7 @@ export default function Login() {
               <div className=" h-[470px]">
                 <div className="my-8">
                   <label className=" text-plum font-semibold " htmlFor="phone">
-                    Phone number
+                    Telefon
                   </label>
                   <PatternFormat
                     customInput={Input}
@@ -63,7 +63,7 @@ export default function Login() {
                   <Link className=" text-plum font-semibold">
                     Parolni unutdizmi?
                   </Link>
-                  <button className="bg-plum text-white w-[180px] md:w-[250px] py-3 rounded-md active:scale-[1.02]">
+                  <button className="bg-plum text-white w-[180px] md:w-[250px] py-3 rounded-md active:text-deep-orange-50">
                     Kirish
                   </button>
                 </div>

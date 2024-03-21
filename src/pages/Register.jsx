@@ -1,7 +1,123 @@
-import React from 'react'
+import React, { useState } from "react";
+import { Input } from "@material-tailwind/react";
+import { PatternFormat } from "react-number-format";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
+  const [phone, setPhone] = useState("");
+  const navigate = useNavigate();
+  const onsubmit = () => {
+    navigate('/verify-code');
+  };
   return (
-    <div>Register</div>
-  )
+    <div className="bg-[#FAFAFA]">
+      <div className="max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10 select-none">
+        <div className="h-[90vh] w-full right-0 flex items-center justify-center">
+          <div className="w-full h-full z-30">
+            <div className="md:w-[450px] h-full pt-5 z-10">
+              <h1 className=" text-plum text-3xl font-semibold my-3">Ro'yxatdan o'tish</h1>
+              <div className=" h-[470px]">
+              <div className="my-4">
+                  <label
+                    className=" text-plum font-semibold"
+                    htmlFor="name"
+                  >
+                    Ism Sharif
+                  </label>
+                  <Input
+                    id="name"
+                    type="text"
+                    placeholder="Ism"
+                    className=" text-lg !border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+                    labelProps={{
+                      className: "hidden",
+                    }}
+                    containerProps={{
+                      className: "min-w-[300px] my-2 h-[60px] md:w-[450px]",
+                    }}
+                  />
+                </div>
+                <div className="my-4">
+                  <label className=" text-plum font-semibold " htmlFor="phone">
+                  Telefon
+                  </label>
+                  <PatternFormat
+                    customInput={Input}
+                    id="phone"
+                    format="+998 (##) ### - ## - ##"
+                    required
+                    autoComplete="off"
+                    allowEmptyFormatting
+                    mask="_"
+                    valueIsNumericString={true}
+                    className=" text-lg !border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+                    onChange={(e) =>
+                      setPhone(e.target.value.replace(/[^0-9]/g, ""))
+                    }
+                    labelProps={{
+                      className: "hidden",
+                    }}
+                    containerProps={{
+                      className:
+                        " min-w-[300px] my-2 h-[60px] md:w-[450px] text-lg",
+                    }}
+                  />
+                </div>
+                <div className="my-4">
+                  <label
+                    className=" text-plum font-semibold"
+                    htmlFor="password"
+                  >
+                    Parol
+                  </label>
+                  <Input
+                    id="password"
+                    type="password"
+                    placeholder="Parol"
+                    className=" text-lg !border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+                    labelProps={{
+                      className: "hidden",
+                    }}
+                    containerProps={{
+                      className: "min-w-[300px] my-2 h-[60px] md:w-[450px]",
+                    }}
+                  />
+                </div>
+                <div className="my-4">
+                  <label
+                    className=" text-plum font-semibold"
+                    htmlFor="password"
+                  >
+                    Parolni tasdiqlash
+                  </label>
+                  <Input
+                    id="password"
+                    type="password"
+                    placeholder="Tasdiqlash"
+                    className=" text-lg !border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+                    labelProps={{
+                      className: "hidden",
+                    }}
+                    containerProps={{
+                      className: "min-w-[300px] my-2 h-[60px] md:w-[450px]",
+                    }}
+                  />
+                </div>
+                <div className="flex items-center justify-between z-10">
+                  <button onClick={onsubmit} className="bg-plum mt-3 text-white w-full py-4 rounded-md active:text-deep-orange-50">
+                    Ro'yxatdan o'tish
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img
+            className="hidden xl:block absolute bottom-0 right-0 z-0"
+            src="header_bg.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  );
 }

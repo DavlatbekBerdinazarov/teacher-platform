@@ -35,15 +35,15 @@ export default function Header() {
           </NavLink>
 
           <div className="hidden md:flex gap-12 font-semibold">
-            <NavLink to="/" className={`${activeNav == "/" ? "text-cherry" : null}  p-1`}>
+            <NavLink to="/" className={`${activeNav == "/" ? "text-cherry" : null}  p-1 hover:text-cherry hover:transition`}>
               <span>Bosh menu</span>
               {activeNav == '/' && <span className="block h-[3px] w-full bg-cherry"></span>}
             </NavLink>
-            <NavLink to="/courses" className={`${activeNav == "/courses" ? "text-cherry" : null}  p-1`}>
+            <NavLink to="/courses" className={`${activeNav == "/courses" ? "text-cherry" : null}  p-1 hover:text-cherry hover:transition`}>
               <span>Kurslar</span>
               {activeNav == '/courses' && <span className="block h-[3px] w-full bg-cherry"></span>}
             </NavLink>
-            <NavLink to="/contact" className={`${activeNav == "/contact" ? "text-cherry" : null}  p-1`}>
+            <NavLink to="/contact" className={`${activeNav == "/contact" ? "text-cherry" : null}  p-1 hover:text-cherry hover:transition`}>
               <span>Bog'lanish</span>
               {activeNav == '/contact' && <span className="block h-[3px] w-full bg-cherry"></span>}
             </NavLink>
