@@ -14,6 +14,8 @@ import {
   Input,
   Drawer,
   Card,
+  Button,
+  Avatar,
 } from "@material-tailwind/react";
 import {
   PresentationChartBarIcon,
@@ -32,6 +34,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { ProjectContext } from "../../layout/MainLayout";
+import { Link } from "react-router-dom";
  
 export function SidebarWithBurgerMenu() {
   const [open, setOpen] = React.useState(0);
@@ -53,29 +56,29 @@ export function SidebarWithBurgerMenu() {
           shadow={false}
           className="h-[calc(100vh-2rem)] w-full p-4"
         >
-          <div className="mb-2 flex items-center gap-4 p-4">
-            <img
-              src="https://docs.material-tailwind.com/img/logo-ct-dark.png"
-              alt="brand"
-              className="h-8 w-8"
-            />
-            <Typography variant="h5" color="blue-gray">
-              Sidebar
-            </Typography>
-          </div>
-          <div className="p-2">
+          <Typography variant="h5" className="border-b-2 pb-2 border-plum">
+            <div className="flex  items-center gap-4">
+            <Avatar src="https://docs.material-tailwind.com/img/face-2.jpg" alt="avatar"/>
+            <h2>John Doe</h2>
+            </div>
+            <div className="mt-4 font-normal">
+              <Link className="hover:font-medium hover:text-cherry" to="/sign-in">Sign in </Link> |{" "}
+              <Link className="hover:font-medium hover:text-plum" to="/sign-up">Register</Link>
+            </div>
+          </Typography>
+          {/* <div className="p-2">
             <Input
               icon={<MagnifyingGlassIcon className="h-5 w-5" />}
               label="Search"
             />
-          </div>
-          <List>
+          </div> */}
+          <List className="">
             <Accordion
               open={open === 1}
               icon={
                 <ChevronDownIcon
                   strokeWidth={2.5}
-                  className={`mx-auto h-4 w-4 transition-transform ${
+                  className={` h-4 w-4 transition-transform ${
                     open === 1 ? "rotate-180" : ""
                   }`}
                 />

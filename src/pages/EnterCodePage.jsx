@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { Input } from "@material-tailwind/react";
-import { PatternFormat } from "react-number-format";
 import { useNavigate } from "react-router-dom";
 import OTPField from "../components/global/OTPField";
 export default function EnterCodePage() {
