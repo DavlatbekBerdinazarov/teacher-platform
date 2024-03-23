@@ -17,7 +17,15 @@ export default function Footer() {
   return (
     <>
       <div>
-        {locationPath && <footer>Footer Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis quos rem inventore!</footer>}
+        {locationPath && <footer className='h-[100px] bg-[#FAFAFA]'>
+            <div className='max-w-[1440px] h-full mx-auto px-2 sm:px-5 lg:px-10 flex justify-between items-center'>
+              <div className='flex items-center gap-12'>
+                <img className='w-24' src="/logo.png" alt="" />
+                <p className=' text-mutedtxt relative top-1'>Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+              <div>IT LIVE 2024</div>
+            </div>
+          </footer>}
       </div>
     </>
   );

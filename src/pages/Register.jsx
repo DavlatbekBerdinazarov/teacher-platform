@@ -7,7 +7,7 @@ export default function Register() {
   const [phone, setPhone] = useState("");
   const navigate = useNavigate();
   const onsubmit = () => {
-    navigate('/verify-code');
+    navigate("/verify-code");
   };
   return (
     <div className="bg-[#FAFAFA]">
@@ -15,13 +15,12 @@ export default function Register() {
         <div className="h-[90vh] w-full right-0 flex items-center justify-center">
           <div className="w-full h-full z-30">
             <div className="md:w-[450px] h-full pt-5 z-10">
-              <h1 className=" text-plum text-3xl font-semibold my-3">Ro'yxatdan o'tish</h1>
+              <h1 className=" text-plum text-3xl font-semibold my-3">
+                Ro'yxatdan o'tish
+              </h1>
               <div className=" h-[470px]">
-              <div className="my-4">
-                  <label
-                    className=" text-plum font-semibold"
-                    htmlFor="name"
-                  >
+                <div className="my-4">
+                  <label className=" text-plum font-semibold" htmlFor="name">
                     Ism Sharif
                   </label>
                   <Input
@@ -39,7 +38,7 @@ export default function Register() {
                 </div>
                 <div className="my-4">
                   <label className=" text-plum font-semibold " htmlFor="phone">
-                  Telefon
+                    Telefon
                   </label>
                   <PatternFormat
                     customInput={Input}
@@ -104,7 +103,10 @@ export default function Register() {
                   />
                 </div>
                 <div className="flex items-center justify-between z-10">
-                  <button onClick={onsubmit} className="bg-plum mt-3 text-white w-full py-4 rounded-md active:text-deep-orange-50">
+                  <button
+                    onClick={onsubmit}
+                    className="bg-plum mt-3 text-white w-full py-4 rounded-md active:text-deep-orange-50"
+                  >
                     Ro'yxatdan o'tish
                   </button>
                 </div>

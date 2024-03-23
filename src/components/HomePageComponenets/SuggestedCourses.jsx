@@ -90,7 +90,7 @@ export default function SuggestedCourses() {
                     </div>
                 </div>
             </div>
-            <div className="col-span-1 p-5 rounded-md flex flex-col justify-center bg-white  shadow-xl">
+            <div className="col-span-1 p-5 rounded-md flex flex-col justify-center bg-white shadow-xl">
                 <img className="h-[200px]" src="/course-1.png" alt="cours img" />
                 <div>
                     <h1 className="my-4 font-bold text-plum">Android Studio</h1>
@@ -106,7 +106,7 @@ export default function SuggestedCourses() {
             </div>
 
         </div>
-        <Link to='#' className="w-full flex items-center justify-center my-5">
+        <Link to='#' className="w-full flex items-center justify-center mt-12">
             <Button className="flex items-center justify-around gap-4 text-[12px] capitalize rounded">barchasi <FaArrowRightLong/></Button>
         </Link>
       </div>

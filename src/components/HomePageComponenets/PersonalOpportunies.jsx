@@ -18,25 +18,25 @@ export default function PersonalOpportunies() {
 
       <main>
         {/* main secton ...images */}
-        <div className="grid xl:grid-cols-3 h-[636px] gap-8">
-          <div className="lg:col-span-1 min-w-[461px] p-3 md:p-6">
-            <div className="h-[330px] w-[400px] flex items-center justify-start relative">
+        <div className="grid xl:grid-cols-3 h-full xl:h-[636px] gap-4 md:gap-8">
+          <div className="lg:col-span-1 xl:min-w-[461px] p-2 md:p-6 h-full flex flex-col md:flex-row xl:flex-col md:flex-nowrap justify-start">
+            <div className="h-[330px] w-full md:w-[340px] flex items-baseline justify-start relative">
               <img className="" src="/personal1.png" alt="" />
-              <div className="w-[300px] h-[330px] absolute top-0 -right-5 flex items-center justify-end">
+              <div className="w-[300px] h-[330px] absolute top-0 -right-4 sm:-right-8 flex items-center justify-end">
                 <img src="/personal2.png" alt="" />
               </div>
             </div>
-            <div className="h-[330px] w-[400px] flex gap-4">
+            <div className="h-[330px] w-[300px] flex gap-4 ">
               <img
-                className="w-[165px] h-[274px]"
+                className="w-[165px] h-[244px]"
                 src="/personal3.png"
                 alt=""
               />
-              <img className="w-auto h-[244px]" src="/personal4.png" alt="" />
+              <img className="w-[190px] h-[244px]" src="/personal4.png" alt="" />
             </div>
           </div>
 
-          <div className="xl:col-span-2 pl-16">
+          <div className="xl:col-span-2 xl:pl-16">
             <h1 className="text-2xl font-bold text-plum my-8">
               Ta'lim uchun tizimli yondashuv
             </h1>

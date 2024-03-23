@@ -1,12 +1,15 @@
 import React from "react";
 import SuggestedCourses from "../components/HomePageComponenets/SuggestedCourses";
-import PersonalOpportunies from "./PersonalOpportunies";
+import PersonalOpportunies from "../components/HomePageComponenets/PersonalOpportunies";
+import CommunityMembers from "../components/HomePageComponenets/CommunityMembers";
+import Consultation from "../components/HomePageComponenets/Consultation";
+import RankingTeachers from "../components/HomePageComponenets/RankingTeachers";
 
 export default function HomePage() {
   return (
-    <div className="bg-[#FAFAFA]">
+    <div className="h-full">
       <div className="max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10 select-none">
-        <div className="h-[90vh] w-full right-0 flex items-center justify-center border-b-2">
+        <div className="h-[90vh] w-full right-0 flex items-center justify-center border-b-2 bg-[#FAFAFA]">
           <div className="w-full h-full z-30 ">
             <div className="xl:w-2/3 w-full flex flex-col gap-6 pt-5 z-10 ">
               <h1 className=" text-cherry text-xl font-semibold mt-12">
@@ -47,6 +50,17 @@ export default function HomePage() {
         <div>
           <PersonalOpportunies/>
         </div>
+        <div>
+          <CommunityMembers/>
+        </div>
+      </div>
+
+      {/* OUT OF CONTAINER */}
+      <div className="h-full mb-4 ">
+        <Consultation/>
+      </div>
+      <div className="max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10">
+        <RankingTeachers/>
       </div>
     </div>
   );
