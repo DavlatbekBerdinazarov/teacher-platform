@@ -1,70 +1,110 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa6";
 import { Progress } from "@material-tailwind/react";
 import { Rating } from "@material-tailwind/react";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "./rankswiper.css";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/grid';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/grid";
+import "swiper/css/pagination";
 
-import { Grid, Pagination } from 'swiper/modules';
+import { Grid, Pagination } from "swiper/modules";
 
 const pupilsComments = [
-    {
-        id: 1,
-        name: "Morgan Miles",
-        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        rating: 4,
-        course: "Frontend",
-        comments: "Lorem ipsum dolor sit amet consectetur adipisicing."
-    },
-    {
-        id: 2,
-        name: "Morgan Miles",
-        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        rating: 3,
-        course: "Frontend",
-        comments: "Lorem ipsum dolor sit amet consectetur adipisicing."
-    },
-    {
-        id: 3,
-        name: "Robert Miles",
-        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        rating: 5,
-        course: "Frontend",
-        comments: "Lorem ipsum dolor sit amet consectetur adipisicing."
-    },
-    {
-        id: 4,
-        name: "Robert Miles",
-        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        rating: 2,
-        course: "Frontend",
-        comments: "Lorem ipsum dolor sit amet consectetur adipisicing."
-    },
-    {
-        id: 5,
-        name: "Robert Miles",
-        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        rating: 5,
-        course: "Frontend",
-        comments: "Lorem ipsum dolor sit amet consectetur adipisicing."
-    },
-    {
-        id: 6,
-        name: "Robert Miles",
-        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        rating: 3,
-        course: "Frontend",
-        comments: "Lorem ipsum dolor sit amet consectetur adipisicing."
-    },
+  {
+    id: 1,
+    name: "John Smith",
+    image:
+      "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnN8ZW58MHx8MHx8fDA%3D",
+    rating: 4,
+    course: "Frontend",
+    comments: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+  },
+  {
+    id: 2,
+    name: "Bob Smith",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    rating: 3,
+    course: "Node js backend",
+    comments: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+  },
+  {
+    id: 3,
+    name: "Anna Cosley",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    rating: 5,
+    course: "Frontend",
+    comments: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+  },
+  {
+    id: 4,
+    name: "Bill Gates",
+    image:
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    rating: 2,
+    course: "UI UX",
+    comments: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+  },
+  {
+    id: 5,
+    name: "Robert Bean",
+    image:
+      "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnN8ZW58MHx8MHx8fDA%3D",
+    rating: 5,
+    course: "Android",
+    comments: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+  },
+  {
+    id: 6,
+    name: "Robert Miles",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    rating: 3,
+    course: "Backend",
+    comments: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+  },
+  {
+    id: 7,
+    name: "Carolina James",
+    image:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    rating: 3,
+    course: "Frontend",
+    comments: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+  },
+];
 
-]
+function calculateColumnCount(screenWidth) {
+  let columnCount;
+  if (screenWidth > 1024) {
+    columnCount = 2;
+  } else {
+    columnCount = 1;
+  }
+  return columnCount;
+}
 
 export default function RankingTeachers() {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const columnCount = calculateColumnCount(screenWidth);
   return (
     <div className="mt-9 ">
       <h1 className=" text-cherry text-xl font-semibold mt-12">fikrlar</h1>
@@ -74,13 +114,13 @@ export default function RankingTeachers() {
       </h1>
 
       <div className="w-full h-[186px] bg-[#EAEDEE] rounded-lg p-8">
-        <div className="flex gap-7">
+        <div className="flex md:gap-7">
           <div className="leading-10 flex flex-col justify-center items-center w-[240px]">
             <div className="flex items-center gap-4">
-              <h1 className=" text-[96px] font-extrabold">4.5</h1>
-              <FaStar className=" text-yellow-600 text-6xl font-extrabold" />
+              <h1 className="text-[45px] md:text-[96px] font-extrabold">4.5</h1>
+              <FaStar className=" text-yellow-600 text-3xl md:text-6xl font-extrabold" />
             </div>
-            <div className="mt-4 h-8 bg-plum rounded-3xl text-white px-5 flex items-center justify-center">
+            <div className="mt-4 md:h-8 bg-plum rounded-3xl text-white text-sm px-5 flex items-center justify-center">
               634 reviews
             </div>
           </div>
@@ -155,28 +195,47 @@ export default function RankingTeachers() {
         </div>
       </div>
 
-      {/* <div className="flex gap-4 mt-12 bg-orange-600">
-        <div className="w-1/2 flex pt-2 gap-4 sm:gap-8 bg-indigo-400">
-          <div className="h-[90px] sm:h-[128px] w-[128px] rounded-full">
-            <img
-              className="w-full h-full rounded-full object-cover"
-              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-            />
-          </div>
+      <div className=" mt-12 h-[430px] pb-12 mb-12">
+        <Swiper
+          slidesPerView={columnCount}
+          grid={{
+            rows: 3,
+          }}
+          spaceBetween={10}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Grid, Pagination]}
+          className="rank-swiper pb-6"
+        >
+          {pupilsComments.map((element) => {
+            return (
+              <SwiperSlide className="rank-swipper-slide  ">
+                <div className=" flex gap-4 sm:gap-8">
+                  <div className="h-[90px] sm:h-[128px] w-[107px] sm:w-[128px] rounded-full">
+                    <img
+                      className="w-full h-full rounded-full object-cover"
+                      src={element.image}
+                      alt=""
+                    />
+                  </div>
 
-          <div>
-            <h1 className="font-bold text-lg sm:text-xl mb-1 sm:mb-2">Regina Miles</h1>
-            <h2>Kurs: Frontend</h2>
-            <Rating value={4} />
-            <p className=" text-mutedtxt">
-              Lorem ipsum dolor sit amet consectetur adipisicing.
-            </p>
-          </div>
-        </div>
-        
-      </div> */}
-      <div className="h-24">Pagination</div>
+                  <div>
+                    <div className="flex flex-row gap-4 sm:gap-0 sm:flex-col">
+                      <h1 className="font-bold text-md sm:text-xl mb-1 sm:mb-2">
+                        {element.name}
+                      </h1>
+                      <h2>Kurs: {element.course}</h2>
+                    </div>
+                    <Rating value={4} />
+                    <p className=" text-sm text-mutedtxt">{element.comments}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
     </div>
   );
 }

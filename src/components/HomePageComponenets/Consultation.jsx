@@ -8,14 +8,14 @@ import { Checkbox } from "@material-tailwind/react";
 export default function Consultation() {
   const [phone, setPhone] = useState("");
   return (
-    <div className="w-full h-[400px] xl:h-[373px] relative">
+    <div className="w-full h-[400px] xl:h-[373px] relative flex items-center justify-center">
       <img
         className=" object-cover overflow-hidden w-full h-full"
         src="/consultationbg.avif"
         alt="wefwef"
       />
       <div className="w-full h-full absolute bg-plum opacity-80 top-0"></div>
-      <div className="grid grid-cols-12 md:gap-5 w-full h-full absolute top-0 text-white max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10 py-6 xl:py-9">
+      <div className="grid grid-cols-12 md:gap-8 w-full h-full absolute top-0 text-white max-w-[1440px] px-2 sm:px-3 lg:px-12 py-6 xl:py-9 ">
         <div className="col-span-12 md:col-span-7 xl:col-span-6 h-full bg-white rounded-2xl text-plum p-6">
           <h1 className="text-plum font-bold text-xl">
             Ma'lumotlaringizni kiriting!
@@ -75,15 +75,22 @@ export default function Consultation() {
             </div>
 
             <div className="flex items-center justify-between">
-               <div className="flex items-center">
-               <Checkbox className=" checked:bg-cherry checked:border-none" defaultChecked />
-                <p className="text-sm text-mutedtxt">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-               </div>
-                <Button className="bg-cherry text-white" type="submit">Yuborish</Button>
+              <div className="flex items-center">
+                <Checkbox
+                  className=" checked:bg-cherry checked:border-none"
+                  defaultChecked
+                />
+                <p className="text-sm text-mutedtxt">
+                  Lorem ipsum dolor sit amet consectetur adipisicing.
+                </p>
+              </div>
+              <Button className="bg-cherry text-white" type="submit">
+                Yuborish
+              </Button>
             </div>
           </form>
         </div>
-        <div className="hidden md:flex col-span-4 xl:col-span-6 items-center justify-center pb-12 pr-12">
+        <div className="hidden md:flex col-span-4 ml-4 xl:col-span-6 items-center justify-center pb-12 pr-12">
           <div>
             <span className="h-2 w-20 rounded-sm bg-cherry block"></span>
             <h1 className=" capitalize text-3xl font-bold text-white my-8">
