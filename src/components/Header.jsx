@@ -31,7 +31,7 @@ export default function Header() {
   }, [location]);
 
   return (
-    <div className="w-full h-20 shadow-sm bg-[#FAFAFA] z-50">
+    <div className="w-full h-20 shadow-sm bg-main z-50">
       <div className="w-full max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10 flex h-full items-center justify-between text-blue-gray-900">
         <NavLink to="/" className="w-24 relative right-3">
           <img src="/logo.png" alt="" />
@@ -44,7 +44,7 @@ export default function Header() {
               activeNav == "/" ? "text-cherry" : null
             }  p-1 hover:text-cherry hover:transition`}
           >
-            <span>Bosh menu</span>
+            <span>Asosiy</span>
             {activeNav == "/" && (
               <span className="block h-[3px] w-full bg-cherry"></span>
             )}
@@ -66,7 +66,7 @@ export default function Header() {
               activeNav == "/contact" ? "text-cherry" : null
             }  p-1 hover:text-cherry hover:transition`}
           >
-            <span>Bog'lanish</span>
+            <span>Kontakt</span>
             {activeNav == "/contact" && (
               <span className="block h-[3px] w-full bg-cherry"></span>
             )}

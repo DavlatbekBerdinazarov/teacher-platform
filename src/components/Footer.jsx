@@ -17,7 +17,7 @@ export default function Footer() {
   return (
     <>
       <div>
-        {locationPath && <footer className='h-[100px] bg-[#FAFAFA]'>
+        {locationPath && <footer className='h-[100px] bg-main'>
             <div className='max-w-[1440px] h-full mx-auto px-2 sm:px-5 lg:px-10 flex justify-between items-center'>
               <div className='flex items-center gap-12'>
                 <img className='w-24' src="/logo.png" alt="" />

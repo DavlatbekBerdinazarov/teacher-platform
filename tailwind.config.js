@@ -13,7 +13,8 @@ module.exports = withMT({
         cherry: "#FF0000",
         plum: "#242430",
         mutedtxt: "#737373",
-        formtxt: "#96999C"
+        formtxt: "#96999C",
+        main:"#fafafa"
       },
       fontFamily: {
         sans: ["Inter", "Helvetica", "Arial", "sans-serif"],

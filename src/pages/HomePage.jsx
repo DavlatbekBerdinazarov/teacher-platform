@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <div className="h-full">
       <div>
-        <div className=" bg-[#FAFAFA]">
+        <div className=" bg-main">
           <Home/>
         </div>
         <div className="max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10">

@@ -18,7 +18,7 @@ export default function PersonalOpportunies() {
 
       <main>
         {/* main secton ...images */}
-        <div className="grid xl:grid-cols-3 h-full xl:h-[636px] gap-4 md:gap-8">
+        <div className="grid xl:grid-cols-3 h-full xl:h-[636px] gap-4 md:gap-6">
           <div className="lg:col-span-1 xl:min-w-[461px] p-2 md:p-6 h-full flex flex-col md:flex-row xl:flex-col md:flex-nowrap justify-start">
             <div className="h-[330px] w-full md:w-[340px] flex items-baseline justify-start relative">
               <img className="" src="/personal1.png" alt="" />
@@ -36,7 +36,7 @@ export default function PersonalOpportunies() {
             </div>
           </div>
 
-          <div className="xl:col-span-2 xl:pl-16">
+          <div className="xl:col-span-2 xl:pl-8">
             <h1 className="text-2xl font-bold text-plum my-8">
               Ta'lim uchun tizimli yondashuv
             </h1>
