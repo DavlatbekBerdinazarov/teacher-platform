@@ -212,7 +212,7 @@ export default function RankingTeachers() {
             return (
               <SwiperSlide className="rank-swipper-slide  ">
                 <div className=" flex gap-4 sm:gap-8">
-                  <div className="h-[90px] sm:h-[128px] w-[128px] rounded-full">
+                  <div className="h-[90px] sm:h-[128px] w-[115px] sm:w-[128px] rounded-full">
                     <img
                       className="w-full h-full rounded-full object-cover"
                       src={element.image}
