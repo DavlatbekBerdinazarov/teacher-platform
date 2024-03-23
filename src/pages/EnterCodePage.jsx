@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import OTPField from "../components/global/OTPField";
+import { ProjectContext } from "../layout/MainLayout";
 export default function EnterCodePage() {
   const [phone, setPhone] = useState("");
+
+  const { setIsAuth, isAuth } = useContext(ProjectContext)
+
   const navigate = useNavigate();
   const onsubmit = () => {
-    navigate("/verify-code");
+    setIsAuth(!isAuth);
+    navigate("/");
+    alert("successfull");
   };
   return (
     <div className="bg-[#FAFAFA]">

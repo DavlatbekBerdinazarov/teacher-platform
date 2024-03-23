@@ -30,7 +30,7 @@ const pupilsComments = [
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
     rating: 3,
-    course: "Node js backend",
+    course: "Node js",
     comments: "Lorem ipsum dolor sit amet consectetur adipisicing.",
   },
   {
@@ -212,7 +212,7 @@ export default function RankingTeachers() {
             return (
               <SwiperSlide className="rank-swipper-slide  ">
                 <div className=" flex gap-4 sm:gap-8">
-                  <div className="h-[90px] sm:h-[128px] w-[107px] sm:w-[128px] rounded-full">
+                  <div className="h-[90px] sm:h-[128px] w-[128px] rounded-full">
                     <img
                       className="w-full h-full rounded-full object-cover"
                       src={element.image}

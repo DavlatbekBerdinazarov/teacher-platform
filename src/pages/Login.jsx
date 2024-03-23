@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Input } from "@material-tailwind/react";
 import { PatternFormat } from "react-number-format";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ProjectContext } from "../layout/MainLayout";
 
 export default function Login() {
   const [phone, setPhone] = useState("");
+
+  const { setIsAuth, isAuth } = useContext(ProjectContext)
+
+  const navigate = useNavigate();
+  const onsubmit = () => {
+    setIsAuth(!isAuth);
+    navigate("/");
+    alert("successfull");
+  };
   return (
     <div className="bg-[#FAFAFA]">
       <div className="max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10 select-none">
@@ -63,7 +73,7 @@ export default function Login() {
                   <Link className=" text-plum font-semibold">
                     Parolni unutdizmi?
                   </Link>
-                  <button className="bg-plum text-white w-[180px] md:w-[250px] py-3 rounded-md active:text-deep-orange-50">
+                  <button onClick={onsubmit} className="bg-plum text-white w-[180px] md:w-[250px] py-3 rounded-md active:text-deep-orange-50">
                     Kirish
                   </button>
                 </div>

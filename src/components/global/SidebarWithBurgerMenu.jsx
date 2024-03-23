@@ -29,25 +29,20 @@ import {
   ChevronRightIcon,
   ChevronDownIcon,
   CubeTransparentIcon,
-  MagnifyingGlassIcon,
-  Bars3Icon,
-  XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { ProjectContext } from "../../layout/MainLayout";
 import { Link } from "react-router-dom";
- 
+
 export function SidebarWithBurgerMenu() {
   const [open, setOpen] = React.useState(0);
   const [openAlert, setOpenAlert] = React.useState(true);
 
- 
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
- 
-  const { isDrawerOpen, closeDrawer } = useContext(ProjectContext);
 
- 
+  const { isAuth, isDrawerOpen, closeDrawer } = useContext(ProjectContext);
+
   return (
     <>
       <Drawer open={isDrawerOpen} onClose={closeDrawer}>
@@ -57,14 +52,26 @@ export function SidebarWithBurgerMenu() {
           className="h-[calc(100vh-2rem)] w-full p-4"
         >
           <Typography variant="h5" className="border-b-2 pb-2 border-plum">
-            <div className="flex  items-center gap-4">
-            <Avatar src="https://docs.material-tailwind.com/img/face-2.jpg" alt="avatar"/>
-            <h2>John Doe</h2>
-            </div>
-            <div className="mt-4 font-normal">
-              <Link className="hover:font-medium hover:text-cherry" to="/sign-in">Sign in </Link> |{" "}
-              <Link className="hover:font-medium hover:text-plum" to="/sign-up">Register</Link>
-            </div>
+            {isAuth ? (<div className="flex  items-center gap-4">
+              <Avatar
+                src="https://docs.material-tailwind.com/img/face-2.jpg"
+                alt="avatar"
+              />
+              <h2>John Doe</h2>
+            </div>)
+            :
+            (<div className="mt-4 font-normal">
+              <Link
+                className="hover:font-medium hover:text-cherry"
+                to="/sign-in"
+              >
+                Sign in{" "}
+              </Link>{" "}
+              |{" "}
+              <Link className="hover:font-medium hover:text-plum" to="/sign-up">
+                Register
+              </Link>
+            </div>)}
           </Typography>
           {/* <div className="p-2">
             <Input

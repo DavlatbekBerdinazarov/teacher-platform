@@ -5,6 +5,7 @@ import {
   MenuHandler,
   MenuList,
   MenuItem,
+  Avatar,
 } from "@material-tailwind/react";
 
 import { IoLanguage } from "react-icons/io5";
@@ -17,8 +18,10 @@ import { FaArrowRight } from "react-icons/fa6";
 
 export default function Header() {
   const { isDrawerOpen, openDrawer } = useContext(ProjectContext);
-  const [activeNav, setActiveNav] = useState('/');
+  const [activeNav, setActiveNav] = useState("/");
   const [isUzbek, setIsUzbek] = useState(true);
+
+  const { isAuth } = useContext(ProjectContext);
 
   const location = useLocation();
 
@@ -27,76 +30,125 @@ export default function Header() {
     setActiveNav(pathname);
   }, [location]);
 
-  return (    
+  return (
     <div className="w-full h-20 shadow-sm bg-[#FAFAFA] z-50">
-        <div className="w-full max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10 flex h-full items-center justify-between text-blue-gray-900">
-          <NavLink to="/" className="w-24 relative right-3">
-            <img src="/logo.png" alt="" />
+      <div className="w-full max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10 flex h-full items-center justify-between text-blue-gray-900">
+        <NavLink to="/" className="w-24 relative right-3">
+          <img src="/logo.png" alt="" />
+        </NavLink>
+
+        <div className="hidden md:flex gap-12 font-semibold">
+          <NavLink
+            to="/"
+            className={`${
+              activeNav == "/" ? "text-cherry" : null
+            }  p-1 hover:text-cherry hover:transition`}
+          >
+            <span>Bosh menu</span>
+            {activeNav == "/" && (
+              <span className="block h-[3px] w-full bg-cherry"></span>
+            )}
           </NavLink>
+          <NavLink
+            to="/courses"
+            className={`${
+              activeNav == "/courses" ? "text-cherry" : null
+            }  p-1 hover:text-cherry hover:transition`}
+          >
+            <span>Kurslar</span>
+            {activeNav == "/courses" && (
+              <span className="block h-[3px] w-full bg-cherry"></span>
+            )}
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={`${
+              activeNav == "/contact" ? "text-cherry" : null
+            }  p-1 hover:text-cherry hover:transition`}
+          >
+            <span>Bog'lanish</span>
+            {activeNav == "/contact" && (
+              <span className="block h-[3px] w-full bg-cherry"></span>
+            )}
+          </NavLink>
+        </div>
 
-          <div className="hidden md:flex gap-12 font-semibold">
-            <NavLink to="/" className={`${activeNav == "/" ? "text-cherry" : null}  p-1 hover:text-cherry hover:transition`}>
-              <span>Bosh menu</span>
-              {activeNav == '/' && <span className="block h-[3px] w-full bg-cherry"></span>}
-            </NavLink>
-            <NavLink to="/courses" className={`${activeNav == "/courses" ? "text-cherry" : null}  p-1 hover:text-cherry hover:transition`}>
-              <span>Kurslar</span>
-              {activeNav == '/courses' && <span className="block h-[3px] w-full bg-cherry"></span>}
-            </NavLink>
-            <NavLink to="/contact" className={`${activeNav == "/contact" ? "text-cherry" : null}  p-1 hover:text-cherry hover:transition`}>
-              <span>Bog'lanish</span>
-              {activeNav == '/contact' && <span className="block h-[3px] w-full bg-cherry"></span>}
-            </NavLink>
-            
-
-          </div>
-
-          <div className="flex items-center">
-            <div className="flex items-center gap-x-2">
-              <div>
+        <div className="flex items-center">
+          <div className="flex items-center gap-x-2">
+            <div>
               <Menu>
                 <MenuHandler>
                   <IconButton variant="text" className="border-2">
-                    <IoLanguage className="text-xl"/>
+                    <IoLanguage className="text-xl" />
                   </IconButton>
                 </MenuHandler>
                 <MenuList>
-                  <MenuItem onClick={() => setIsUzbek(false)} className={`${!isUzbek ? 'text-cherry': null} pl-5 text-[15px]`}>Ruscha</MenuItem>
-                  <MenuItem onClick={() => setIsUzbek(true)} className={`${isUzbek ? 'text-cherry': null} pl-5 text-[15px]`}>O'zbekcha</MenuItem>
+                  <MenuItem
+                    onClick={() => setIsUzbek(false)}
+                    className={`${
+                      !isUzbek ? "text-cherry" : null
+                    } pl-5 text-[15px]`}
+                  >
+                    Ruscha
+                  </MenuItem>
+                  <MenuItem
+                    onClick={() => setIsUzbek(true)}
+                    className={`${
+                      isUzbek ? "text-cherry" : null
+                    } pl-5 text-[15px]`}
+                  >
+                    O'zbekcha
+                  </MenuItem>
                 </MenuList>
               </Menu>
-              </div>
-              <Link to="sign-up">
-                <Button
-                  variant="text"
-                  className="hidden lg:inline-block text-cherry"
-                >
-                  <span>Ro'yxatdan o'tish</span>
-                </Button>
-              </Link>
-              <Link to="sign-in">
-                <Button
-                  className="items-center bg-cherry hidden lg:flex"
-                >
-                  <span className="hidden lg:inline-block">Kirish</span>
-                  <FaArrowRight className="ml-2 font-bold" />
-                </Button>
-              </Link>
             </div>
-            <IconButton
-              className="block lg:hidden"
-              variant="text"
-              size="lg"
-              onClick={openDrawer}
-            >
-              {isDrawerOpen ? (
-                <XMarkIcon className="h-8 w-8 stroke-2" />
+            {/* auth */}
+            <div>
+              {isAuth ? (
+                <div className="flex items-center gap-4">
+                  <div className="hidden md:block">
+                    <h2 className="text-lg font-semibold">John Doe</h2>
+                    <p className=" text-mutedtxt text-sm">Lorem, ipsum dolor.</p>
+                  </div>
+                  <Avatar
+                    src="https://docs.material-tailwind.com/img/face-2.jpg"
+                    alt="avatar"
+                  />
+                </div>
               ) : (
-                <Bars3Icon className="h-8 w-8 stroke-2" />
+                <div className="flex">
+                  <Link to="sign-up">
+                    <Button
+                      variant="text"
+                      className="hidden lg:inline-block text-cherry"
+                    >
+                      <span>Ro'yxatdan o'tish</span>
+                    </Button>
+                  </Link>
+                  <Link to="sign-in">
+                    <Button className="items-center bg-cherry hidden lg:flex">
+                      <span className="hidden lg:inline-block">Kirish</span>
+                      <FaArrowRight className="ml-2 font-bold" />
+                    </Button>
+                  </Link>
+                </div>
               )}
-            </IconButton>
+            </div>
           </div>
+          <IconButton
+            className="block lg:hidden"
+            variant="text"
+            size="lg"
+            onClick={openDrawer}
+          >
+            {isDrawerOpen ? (
+              <XMarkIcon className="h-8 w-8 stroke-2" />
+            ) : (
+              <Bars3Icon className="h-8 w-8 stroke-2" />
+            )}
+          </IconButton>
         </div>
       </div>
+    </div>
   );
 }
