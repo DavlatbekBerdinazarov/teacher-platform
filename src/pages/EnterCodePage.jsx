@@ -4,9 +4,7 @@ import OTPField from "../components/global/OTPField";
 import { ProjectContext } from "../layout/MainLayout";
 
 import axios from "axios";
-let data = window.localStorage.getItem("data");
-data = JSON.parse(data);
-const phone1 = data ? data.phone : "";
+
 export default function EnterCodePage() {
   const [phone, setPhone] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -18,6 +16,10 @@ export default function EnterCodePage() {
 
   function HandleClick(e) {
     e.preventDefault();
+    let data = window.localStorage.getItem("data");
+    data = JSON.parse(data);
+    const phone1 = data.phone;
+
     axios
       .post("https://itlive.introdevs.site/api/verification/verify", {
         type: "register",
