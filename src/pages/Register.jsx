@@ -2,15 +2,60 @@ import React, { useState } from "react";
 import { Input } from "@material-tailwind/react";
 import { PatternFormat } from "react-number-format";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function Register() {
   const [phone, setPhone] = useState("");
+  const [name, setName] = useState("");
+  const [pass, setPass] = useState("");
+  const [r_pass, setR_pass] = useState("");
+  const [errorMessage, setErrorMessage] = useState(false);
+
+  const data = { name, phone };
   const navigate = useNavigate();
-  const onsubmit = () => {
-    navigate("/verify-code");
+
+  const onsubmit = (e) => {
+    e.preventDefault();
+    if(!(/^[a-zA-Z]{3,}$/.test(name))){
+      const nameError = () => toast("Ism xato kiritilgan");
+      return setErrorMessage(nameError);
+    }
+    if(pass !== r_pass){
+      return setErrorMessage("password birxil emas")
+    }
+
+    axios
+      .post("https://itlive.introdevs.site/api/verification/send", {
+        type: "register",
+        phone: "+" + phone,
+      })
+      .then((res) => {
+        if (res.status === 201) {
+          window.localStorage.setItem("data", JSON.stringify(data));
+          navigate("/verify-code");
+        }
+      })
+      .catch((error) => {
+        setErrorMessage(error.response.data.message);
+        console.log(error);
+      });
   };
+
+  function handlerName(e) {
+    setName(e.target.value);
+  }
+  function handlerPass(e) {
+    setPass(e.target.value);
+  }
+  function handlerR_pass(e) {
+    setR_pass(e.target.value);
+  }
+
   return (
-    <div className="bg-[#FAFAFA]">
+    <div className=" bg-main">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 select-none">
         <div className="h-[90vh] w-full right-0 flex items-center justify-center">
           <div className="w-full h-full z-30">
@@ -18,7 +63,18 @@ export default function Register() {
               <h1 className=" text-plum text-3xl font-semibold my-3">
                 Ro'yxatdan o'tish
               </h1>
-              <div className=" h-[470px]">
+              <form className=" h-[470px]">
+
+                {/* error alert */}
+                {errorMessage ? (
+                  <div
+                    class="bg-red-100 text-red-700 px-4 py-3 rounded relative"
+                    role="alert"
+                  >
+                    <span class="block sm:inline">{errorMessage}</span>
+                  </div>
+                ) : null}
+
                 <div className="my-4">
                   <label className=" text-plum font-semibold" htmlFor="name">
                     Ism Sharif
@@ -26,6 +82,7 @@ export default function Register() {
                   <Input
                     id="name"
                     type="text"
+                    onChange={handlerName}
                     placeholder="Ism"
                     className=" text-lg !border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
                     labelProps={{
@@ -34,7 +91,20 @@ export default function Register() {
                     containerProps={{
                       className: "min-w-[300px] my-2 h-[60px] md:w-[450px]",
                     }}
+                    required
                   />
+                  <ToastContainer
+                    position="top-left"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="colored"
+                    />
                 </div>
                 <div className="my-4">
                   <label className=" text-plum font-semibold " htmlFor="phone">
@@ -72,6 +142,7 @@ export default function Register() {
                   <Input
                     id="password"
                     type="password"
+                    onChange={handlerPass}
                     placeholder="Parol"
                     className=" text-lg !border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
                     labelProps={{
@@ -85,13 +156,14 @@ export default function Register() {
                 <div className="my-4">
                   <label
                     className=" text-plum font-semibold"
-                    htmlFor="password"
+                    htmlFor="password_R"
                   >
                     Parolni tasdiqlash
                   </label>
                   <Input
-                    id="password"
+                    id="password_R"
                     type="password"
+                    onChange={handlerR_pass}
                     placeholder="Tasdiqlash"
                     className=" text-lg !border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
                     labelProps={{
@@ -100,6 +172,7 @@ export default function Register() {
                     containerProps={{
                       className: "min-w-[300px] my-2 h-[60px] md:w-[450px]",
                     }}
+                    required
                   />
                 </div>
                 <div className="flex items-center justify-between z-10">
@@ -110,7 +183,7 @@ export default function Register() {
                     Ro'yxatdan o'tish
                   </button>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
           <img

@@ -23,7 +23,7 @@ export default function Home() {
             <div className="flex items-center justify-between z-10">
               <button
                 onClick={onsubmit}
-                className="bg-cherry mt-3 text-white w-full md:w-[230px] py-4 rounded-md active:text-deep-orange-50"
+                className="bg-cherry mt-3 text-white w-[70vw] md:w-[230px] py-4 rounded-md active:text-deep-orange-50"
               >
                 Darsni boshlash
               </button>

@@ -210,7 +210,7 @@ export default function RankingTeachers() {
         >
           {pupilsComments.map((element) => {
             return (
-              <SwiperSlide className="rank-swipper-slide  ">
+              <SwiperSlide key={element.id} className="rank-swipper-slide  ">
                 <div className=" flex gap-4 sm:gap-8">
                   <div className="h-[90px] sm:h-[128px] w-[115px] sm:w-[128px] rounded-full">
                     <img
