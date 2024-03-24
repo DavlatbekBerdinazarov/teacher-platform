@@ -3,8 +3,6 @@ import { Input } from "@material-tailwind/react";
 import { PatternFormat } from "react-number-format";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function Register() {
@@ -14,14 +12,13 @@ export default function Register() {
   const [r_pass, setR_pass] = useState("");
   const [errorMessage, setErrorMessage] = useState(false);
 
-  const data = { name, phone };
+  const data = { name, phone, pass, r_pass};
   const navigate = useNavigate();
 
   const onsubmit = (e) => {
     e.preventDefault();
     if(!(/^[a-zA-Z]{3,}$/.test(name))){
-      const nameError = () => toast("Ism xato kiritilgan");
-      return setErrorMessage(nameError);
+      return setErrorMessage("Name invalid")
     }
     if(pass !== r_pass){
       return setErrorMessage("password birxil emas")
@@ -93,18 +90,6 @@ export default function Register() {
                     }}
                     required
                   />
-                  <ToastContainer
-                    position="top-left"
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="colored"
-                    />
                 </div>
                 <div className="my-4">
                   <label className=" text-plum font-semibold " htmlFor="phone">
