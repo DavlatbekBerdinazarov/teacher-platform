@@ -12,7 +12,15 @@ export default function Register() {
   const [r_pass, setR_pass] = useState("");
   const [errorMessage, setErrorMessage] = useState(false);
 
-  const data = { name, phone, pass, r_pass};
+  const data = { name, phone, pass, r_pass};  
+
+
+
+
+
+
+
+  
   const navigate = useNavigate();
 
   const onsubmit = (e) => {
