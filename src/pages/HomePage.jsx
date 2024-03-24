@@ -13,13 +13,13 @@ export default function HomePage() {
         <div className=" bg-main">
           <Home/>
         </div>
-        <div className="max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
           <SuggestedCourses />
         </div>
-        <div className="max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
           <PersonalOpportunies/>
         </div>
-        <div className="max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
           <CommunityMembers/>
         </div>
       </div>
@@ -28,7 +28,7 @@ export default function HomePage() {
       <div className="h-full mb-4 ">
         <Consultation/>
       </div>
-      <div className="max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         <RankingTeachers/>
       </div>
     </div>

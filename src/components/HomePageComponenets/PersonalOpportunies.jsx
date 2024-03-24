@@ -32,7 +32,7 @@ export default function PersonalOpportunies() {
                 src="/personal3.png"
                 alt=""
               />
-              <img className="w-[190px] h-[244px]" src="/personal4.png" alt="" />
+              <img className="w-[170px] sm:w-[190px] h-[200px] sm:h-[244px]" src="/personal4.png" alt="" />
             </div>
           </div>
 

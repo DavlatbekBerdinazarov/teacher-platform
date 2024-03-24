@@ -31,9 +31,9 @@ export default function Header() {
   }, [location]);
 
   return (
-    <div className="w-full h-20 shadow-sm bg-main z-50">
-      <div className="w-full max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10 flex h-full items-center justify-between text-blue-gray-900">
-        <NavLink to="/" className="w-24 relative right-3">
+    <div className="w-full h-16 sm:h-20 shadow-md bg-main z-50 sticky top-0">
+      <div className="w-full max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-10 flex h-full items-center justify-between text-blue-gray-900">
+        <NavLink to="/" className="w-24 relative right-1">
           <img src="/logo.png" alt="" />
         </NavLink>
 
@@ -76,7 +76,9 @@ export default function Header() {
         <div className="flex items-center">
           <div className="flex items-center gap-x-2">
             <div>
-              <Menu>
+              <Menu containerProps={{
+                      className: "max-w-[100px]",
+                    }}>
                 <MenuHandler>
                   <IconButton variant="text" className="border-2">
                     <IoLanguage className="text-xl" />

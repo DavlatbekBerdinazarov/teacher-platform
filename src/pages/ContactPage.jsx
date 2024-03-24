@@ -10,7 +10,7 @@ export default function ContactPage() {
   return (
     <div>
       <div className=" bg-main pt-12 pb-5">
-        <div className="max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
           <span className="h-2 w-24 rounded-sm bg-cherry block"></span>
           <h1 className=" capitalize text-4xl font-bold text-plum my-8">
             Kontaktlar
@@ -19,7 +19,7 @@ export default function ContactPage() {
       </div>
 
       {/* main information */}
-      <div className="max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10 ">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 ">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-plum font-bold py-10">
           <div className=" col-span-1 h-full ">
             <div className="mb-12">

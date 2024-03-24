@@ -17,7 +17,7 @@ export default function Login() {
   };
   return (
     <div className="bg-[#FAFAFA]">
-      <div className="max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-10 select-none">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 select-none">
         <div className="h-[90vh] w-full right-0 flex items-center justify-center">
           <div className="w-full h-full z-30">
             <div className="md:w-[450px] h-full pt-5 z-10">

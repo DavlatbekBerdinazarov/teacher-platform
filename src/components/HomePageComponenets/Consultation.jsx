@@ -15,7 +15,7 @@ export default function Consultation() {
         alt="wefwef"
       />
       <div className="w-full h-full absolute bg-plum opacity-80 top-0"></div>
-      <div className="grid grid-cols-12 md:gap-8 w-full h-full absolute top-0 text-white max-w-[1440px] px-2 sm:px-3 lg:px-12 py-6 xl:py-9 ">
+      <div className="grid grid-cols-12 md:gap-8 w-full h-full absolute top-0 text-white max-w-[1440px] px-4 sm:px-6 lg:px-12 py-6 xl:py-9 ">
         <div className="col-span-12 md:col-span-7 xl:col-span-6 h-full bg-white rounded-2xl text-plum p-6">
           <h1 className="text-plum font-bold text-xl">
             Ma'lumotlaringizni kiriting!
