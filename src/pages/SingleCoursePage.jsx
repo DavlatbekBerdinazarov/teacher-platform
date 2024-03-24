@@ -52,7 +52,7 @@ export default function SingleCoursePage() {
                     <p className="block lg:hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis architecto consequuntur praesentium dolorem tenetur porro? Maxime blanditiis similique optio pariatur omnis explicabo autem sequi error odit.</p>
                   </div>
 
-                  <div className="h-[160px] w-full p-4 sm:p-6 border-2 rounded-xl flex items-center gap-6">
+                  <div className="min-h-[160px] w-full p-2 sm:p-4 border-2 rounded-xl flex items-start gap-6">
                     <div className=" min-w-[128px] h-[128px] rounded-full">
                       <img className="w-full h-full rounded-full object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D" alt="wfe" />
                     </div>
