@@ -31,7 +31,7 @@ export default function Header() {
   }, [location]);
 
   return (
-    <div className="w-full h-16 sm:h-20 shadow-md bg-main sticky top-0">
+    <div className="w-full h-16 sm:h-20 shadow-md bg-main z-40 sticky top-0">
       <div className="w-full max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-10 flex h-full items-center justify-between text-blue-gray-900">
         <NavLink to="/" className="w-24 relative right-1">
           <img src="/logo.png" alt="" />
