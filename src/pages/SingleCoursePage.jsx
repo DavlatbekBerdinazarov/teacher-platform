@@ -103,9 +103,9 @@ export default function SingleCoursePage() {
                 <RankingTeachers/>
               </div>
 
-              <div>
-                <Consultation/>
-              </div>
+            </div>
+            <div>
+              <Consultation/>
             </div>
           </div>
         );
