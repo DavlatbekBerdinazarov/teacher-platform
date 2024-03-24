@@ -113,8 +113,8 @@ export default function RankingTeachers() {
         O'quvchilarimiz fikrlari
       </h1>
 
-      <div className="w-full h-[186px] bg-[#EAEDEE] rounded-lg p-8">
-        <div className="flex md:gap-7">
+      <div className="w-full sm:h-[186px] bg-[#EAEDEE] rounded-lg p-8">
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-7">
           <div className="leading-10 flex flex-col justify-center items-center w-[240px]">
             <div className="flex items-center gap-4">
               <h1 className="text-[45px] md:text-[96px] font-extrabold">4.5</h1>
@@ -212,7 +212,7 @@ export default function RankingTeachers() {
             return (
               <SwiperSlide key={element.id} className="rank-swipper-slide  ">
                 <div className=" flex gap-4 sm:gap-8">
-                  <div className="h-[90px] sm:h-[128px] w-[115px] sm:w-[128px] rounded-full">
+                  <div className="h-[80px] sm:h-[128px] w-[100px] sm:w-[128px] rounded-full">
                     <img
                       className="w-full h-full rounded-full object-cover"
                       src={element.image}
@@ -225,7 +225,7 @@ export default function RankingTeachers() {
                       <h1 className="font-bold text-md sm:text-xl mb-1 sm:mb-2">
                         {element.name}
                       </h1>
-                      <h2>Kurs: {element.course}</h2>
+                      <h2 className="font-semibold">Kurs: <span className="text-mutedtext font-light">{element.course}</span></h2>
                     </div>
                     <Rating value={4} />
                     <p className=" text-sm text-mutedtxt">{element.comments}</p>

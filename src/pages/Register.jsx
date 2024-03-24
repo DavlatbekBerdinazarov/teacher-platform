@@ -13,13 +13,6 @@ export default function Register() {
   const [errorMessage, setErrorMessage] = useState(false);
 
   const data = { name, phone, pass, r_pass};  
-
-
-
-
-
-
-
   
   const navigate = useNavigate();
 

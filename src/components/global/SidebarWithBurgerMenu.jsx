@@ -52,33 +52,32 @@ export function SidebarWithBurgerMenu() {
           className="h-[calc(100vh-2rem)] w-full p-4"
         >
           <Typography variant="h5" className="border-b-2 pb-2 border-plum">
-            {isAuth ? (<div className="flex  items-center gap-4">
-              <Avatar
-                src="https://docs.material-tailwind.com/img/face-2.jpg"
-                alt="avatar"
-              />
-              <h2>John Doe</h2>
-            </div>)
-            :
-            (<div className="mt-4 font-normal">
-              <Link
-                className="hover:font-medium hover:text-cherry"
-                to="/sign-in"
-              >
-                Sign in{" "}
-              </Link>{" "}
-              |{" "}
-              <Link className="hover:font-medium hover:text-plum" to="/sign-up">
-                Register
-              </Link>
-            </div>)}
+            {isAuth ? (
+              <div className="flex  items-center gap-4">
+                <Avatar
+                  src="https://docs.material-tailwind.com/img/face-2.jpg"
+                  alt="avatar"
+                />
+                <h2>John Doe</h2>
+              </div>
+            ) : (
+              <div className="mt-4 font-normal">
+                <Link
+                  className="hover:font-medium hover:text-cherry"
+                  to="/sign-in"
+                >
+                  Sign in{" "}
+                </Link>{" "}
+                |{" "}
+                <Link
+                  className="hover:font-medium hover:text-plum"
+                  to="/sign-up"
+                >
+                  Register
+                </Link>
+              </div>
+            )}
           </Typography>
-          {/* <div className="p-2">
-            <Input
-              icon={<MagnifyingGlassIcon className="h-5 w-5" />}
-              label="Search"
-            />
-          </div> */}
           <List className="">
             <Accordion
               open={open === 1}
@@ -100,30 +99,36 @@ export function SidebarWithBurgerMenu() {
                     <PresentationChartBarIcon className="h-5 w-5" />
                   </ListItemPrefix>
                   <Typography color="blue-gray" className="mr-auto font-normal">
-                    Dashboard
+                    Category
                   </Typography>
                 </AccordionHeader>
               </ListItem>
               <AccordionBody className="py-1">
                 <List className="p-0">
-                  <ListItem>
-                    <ListItemPrefix>
-                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                    </ListItemPrefix>
-                    Analytics
-                  </ListItem>
-                  <ListItem>
-                    <ListItemPrefix>
-                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                    </ListItemPrefix>
-                    Reporting
-                  </ListItem>
-                  <ListItem>
-                    <ListItemPrefix>
-                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                    </ListItemPrefix>
-                    Projects
-                  </ListItem>
+                  <Link to='/'>
+                    <ListItem>
+                      <ListItemPrefix>
+                        <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                      </ListItemPrefix>
+                      Asosiy
+                    </ListItem>
+                  </Link>
+                  <Link to='courses'>
+                    <ListItem>
+                      <ListItemPrefix>
+                        <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                      </ListItemPrefix>
+                      Kurslar
+                    </ListItem>
+                  </Link>
+                  <Link to='contact'>
+                    <ListItem>
+                      <ListItemPrefix>
+                        <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                      </ListItemPrefix>
+                      Kontakt
+                    </ListItem>
+                  </Link>
                 </List>
               </AccordionBody>
             </Accordion>
@@ -153,55 +158,67 @@ export function SidebarWithBurgerMenu() {
               </ListItem>
               <AccordionBody className="py-1">
                 <List className="p-0">
-                  <ListItem>
-                    <ListItemPrefix>
-                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                    </ListItemPrefix>
-                    Orders
-                  </ListItem>
-                  <ListItem>
-                    <ListItemPrefix>
-                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                    </ListItemPrefix>
-                    Products
-                  </ListItem>
+                  <Link>
+                    <ListItem>
+                      <ListItemPrefix>
+                        <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                      </ListItemPrefix>
+                      Orders
+                    </ListItem>
+                  </Link>
+                  <Link>
+                    <ListItem>
+                      <ListItemPrefix>
+                        <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                      </ListItemPrefix>
+                      Products
+                    </ListItem>
+                  </Link>
                 </List>
               </AccordionBody>
             </Accordion>
             <hr className="my-2 border-blue-gray-50" />
-            <ListItem>
-              <ListItemPrefix>
-                <InboxIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              Inbox
-              <ListItemSuffix>
-                <Chip
-                  value="14"
-                  size="sm"
-                  variant="ghost"
-                  color="blue-gray"
-                  className="rounded-full"
-                />
-              </ListItemSuffix>
-            </ListItem>
-            <ListItem>
-              <ListItemPrefix>
-                <UserCircleIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              Profile
-            </ListItem>
-            <ListItem>
-              <ListItemPrefix>
-                <Cog6ToothIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              Settings
-            </ListItem>
-            <ListItem>
-              <ListItemPrefix>
-                <PowerIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              Log Out
-            </ListItem>
+            <Link>
+              <ListItem>
+                <ListItemPrefix>
+                  <InboxIcon className="h-5 w-5" />
+                </ListItemPrefix>
+                Inbox
+                <ListItemSuffix>
+                  <Chip
+                    value="14"
+                    size="sm"
+                    variant="ghost"
+                    color="blue-gray"
+                    className="rounded-full"
+                  />
+                </ListItemSuffix>
+              </ListItem>
+            </Link>
+            <Link>
+              <ListItem>
+                <ListItemPrefix>
+                  <UserCircleIcon className="h-5 w-5" />
+                </ListItemPrefix>
+                Profile
+              </ListItem>
+            </Link>
+            <Link>
+              <ListItem>
+                <ListItemPrefix>
+                  <Cog6ToothIcon className="h-5 w-5" />
+                </ListItemPrefix>
+                Settings
+              </ListItem>
+            </Link>
+            <Link>
+              <ListItem>
+                <ListItemPrefix>
+                  <PowerIcon className="h-5 w-5" />
+                </ListItemPrefix>
+                Log Out
+              </ListItem>
+            </Link>
           </List>
           <Alert
             open={openAlert}
