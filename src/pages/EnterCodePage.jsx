@@ -10,7 +10,7 @@ export default function EnterCodePage() {
   const [errorMessage, setErrorMessage] = useState("");
   const [otp, setOtp] = useState(new Array(6).fill(""));
 
-  const { setIsAuth, isAuth } = useContext(ProjectContext);
+  const { setIsAuth, isAuth, enteredPhone } = useContext(ProjectContext);
 
   const navigate = useNavigate();
 
@@ -75,7 +75,7 @@ export default function EnterCodePage() {
               </h1>
               <p>
                 Biz sizga faollashtiruvchi kalit bilan kodni yubordik{" "}
-                <span className="font-semibold text-plum">+998932334343</span>{" "}
+                <span className="font-semibold text-plum">+{enteredPhone}</span>{" "}
                 raqamiga
               </p>
               <div className=" h-[470px] my-8">

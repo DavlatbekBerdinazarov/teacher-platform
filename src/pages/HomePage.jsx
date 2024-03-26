@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import SuggestedCourses from "../components/HomePageComponenets/SuggestedCourses";
 import PersonalOpportunies from "../components/HomePageComponenets/PersonalOpportunies";
 import CommunityMembers from "../components/HomePageComponenets/CommunityMembers";
@@ -11,11 +11,16 @@ export default function HomePage() {
   let token = window.localStorage.getItem("accessToken");
   const { setIsAuth } = useContext(ProjectContext);
 
-  if (token) {
-    setIsAuth(true);
-  } else {
-    setIsAuth(false);
-  }
+  useEffect(() => {
+    if (setIsAuth) {
+      if (token) {
+        setIsAuth(true);
+      } else {
+        setIsAuth(false);
+      }
+    }
+  }, [setIsAuth]);
+  
 
   return (
     <div className="h-full">

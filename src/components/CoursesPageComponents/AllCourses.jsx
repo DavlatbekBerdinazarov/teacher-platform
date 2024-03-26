@@ -95,7 +95,7 @@ export default function AllCourses() {
             return (
               <Link to={`/courses/single/${video.id}`} key={video.id} className=" col-span-1 py-3 sm:p-5 rounded-md flex flex-col justify-center bg-white shadow-xl">
                 <img
-                  className="h-[200px]"
+                  className="h-[250px]"
                   src={video.courseImage}
                   alt="cours img"
                 />

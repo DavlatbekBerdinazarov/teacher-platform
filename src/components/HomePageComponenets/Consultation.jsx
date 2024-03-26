@@ -27,7 +27,7 @@ export default function Consultation() {
                   id="name"
                   type="text"
                   placeholder="Ism"
-                  className=" w-full xl:w-[255px] text-lg !border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+                  className=" w-full 2xl:w-[255px] text-lg !border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
                   labelProps={{
                     className: "hidden",
                   }}
@@ -46,7 +46,7 @@ export default function Consultation() {
                   allowEmptyFormatting
                   mask="_"
                   valueIsNumericString={true}
-                  className="h-12 w-full xl:w-[255px] text-lg !border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+                  className="h-12 w-full 2xl:w-[255px] text-lg !border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
                   onChange={(e) =>
                     setPhone(e.target.value.replace(/[^0-9]/g, ""))
                   }
