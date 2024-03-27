@@ -26,7 +26,7 @@ export default function ContactPage() {
               <h3 className="text-lg">Yagona aloqa operatori</h3>
 
               <article className="flex items-center gap-3 text-cherry text-xl my-5">
-                <BsTelephoneFill /> <span>+998 (33) 408-28-08</span>
+                <BsTelephoneFill /> <span>+998 (97) 866-50-50</span>
               </article>
             </div>
             <div> 
@@ -46,8 +46,8 @@ export default function ContactPage() {
               <h3 className="text-lg">Bizning manzil</h3>
 
               <article className="flex items-center gap-3 text-cherry text-xl my-5">
-                <FaLocationDot />{" "}
-                <span>Markaziy ko'cha Milliy bank ro'parasi</span>
+                <FaLocationDot className="text-2xl"/>{" "}
+                <span>O'zbekiston ko'chasi Milliy bank ro'parasi</span>
               </article>
             </div>
             <div>

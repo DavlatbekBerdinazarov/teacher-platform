@@ -9,7 +9,7 @@ export default function EnterCodePage() {
   const [errorMessage, setErrorMessage] = useState("");
   const [otp, setOtp] = useState(new Array(6).fill(""));
 
-  const { setIsAuth, isAuth } = useContext(ProjectContext);
+  const { setIsAuth, isAuth, enteredPhone } = useContext(ProjectContext);
 
   const navigate = useNavigate();
 

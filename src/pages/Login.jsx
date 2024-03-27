@@ -4,11 +4,13 @@ import { PatternFormat } from "react-number-format";
 import { Link, useNavigate } from "react-router-dom";
 import { ProjectContext } from "../layout/MainLayout";
 import axios from "axios";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 export default function Login() {
   const [phone, setPhone] = useState("");
   const [pass, setPass] = useState("");
   const [errorMessage, setErrorMessage] = useState(false);
+  const [isEyeOff, setIsEyeOff] = useState(true);
 
   const { setIsAuth, isAuth } = useContext(ProjectContext);
 
@@ -80,27 +82,42 @@ export default function Login() {
                     }}
                   />
                 </div>
-                <div className="my-8">
+
+                <div class="w-full mb-12">
                   <label
                     className=" text-plum font-semibold"
                     htmlFor="password"
                   >
                     Parol
                   </label>
-                  <Input
-                    id="password"
-                    type="password"
-                    onChange={(e) => setPass(e.target.value)}
-                    placeholder="Parol"
-                    className=" text-lg !border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
-                    labelProps={{
-                      className: "hidden",
-                    }}
-                    containerProps={{
-                      className: "min-w-[300px] my-2 h-[60px] md:w-[450px]",
-                    }}
-                  />
+                  <div class="relative w-full bg-white">
+                    <div
+                      onClick={() => setIsEyeOff((prev) => !prev)}
+                      class="absolute grid w-8 h-8 place-items-center text-plum top-2/4 right-6 -translate-y-2/4 z-40"
+                    >
+                      {isEyeOff ? (
+                        <IoEyeOff className="text-2xl" />
+                      ) : (
+                        <IoEye className="text-2xl" />
+                      )}
+                    </div>
+                    <Input
+                      className="!border !border-gray-300 peer w-full h-full bg-transparent font-sans font-normal outline outline-0 focus:outline-0 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 rounded-[7px] !pr-9 text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+                      id="password"
+                      type={isEyeOff ? "password" : "text"}
+                      onChange={(e) => setPass(e.target.value)}
+                      placeholder="Parol"
+                      labelProps={{
+                        className: "hidden",
+                      }}
+                      containerProps={{
+                        className:
+                          " min-w-[300px] my-2 h-[60px] md:w-[450px] text-lg",
+                      }}
+                    />
+                  </div>
                 </div>
+
                 <div className="flex items-center justify-between z-10">
                   <Link className=" text-plum font-semibold">
                     Parolni unutdizmi?

@@ -7,6 +7,8 @@ import {
   MenuItem,
   Avatar,
 } from "@material-tailwind/react";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { IoMdLogOut } from "react-icons/io";
 
 import { IoLanguage } from "react-icons/io5";
 
@@ -39,7 +41,7 @@ export default function Header() {
           <img src="/logo.png" alt="" />
         </NavLink>
 
-        <div className="hidden md:flex gap-12 font-semibold">
+        <div className="hidden lg:flex items-center gap-8 font-semibold">
           <NavLink
             to="/"
             className={`${
@@ -73,14 +75,37 @@ export default function Header() {
               <span className="block h-[3px] w-full bg-cherry"></span>
             )}
           </NavLink>
+
+          <Menu>
+            <MenuHandler>
+              <Button variant="text" className="flex items-center gap-2 px-4 capitalize text-md font-medium">
+                <span>Help </span> <IoMdArrowDropdown />
+              </Button>
+            </MenuHandler>
+            <MenuList className="">
+              
+              <MenuItem
+              className="font-semibold hover:text-cherry"
+              >
+                FAQ
+              </MenuItem>
+              <MenuItem
+              className="flex gap-2 items-center font-semibold "
+              >
+                <IoMdLogOut className="font-semibold"/> Log Out
+              </MenuItem>
+            </MenuList>
+          </Menu>
         </div>
 
         <div className="flex items-center">
           <div className="flex items-center gap-x-2">
             <div>
-              <Menu containerProps={{
-                      className: "max-w-[100px]",
-                    }}>
+              <Menu
+                containerProps={{
+                  className: "max-w-[100px]",
+                }}
+              >
                 <MenuHandler>
                   <IconButton variant="text" className="border-2">
                     <IoLanguage className="text-xl" />
@@ -111,8 +136,10 @@ export default function Header() {
               {isAuth ? (
                 <div className="flex items-center gap-4">
                   <div className="hidden md:block">
-                    <h2 className="text-lg font-semibold">{userName}</h2>
-                    <p className=" text-mutedtxt text-sm">Lorem, ipsum dolor.</p>
+                    <h2 className="text-lg font-semibold">John Doe</h2>
+                    <p className=" text-mutedtxt text-sm">
+                      Lorem, ipsum dolor.
+                    </p>
                   </div>
                   <Avatar
                     src="https://docs.material-tailwind.com/img/face-2.jpg"
