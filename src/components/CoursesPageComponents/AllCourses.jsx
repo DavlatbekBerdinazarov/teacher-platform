@@ -2,19 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-// const suggestedCourses = [
-//     {
-//       id: 1,
-//       courseName: "Frontend",
-//       courseImage: "/course-1.png",
-//       desc: "The gradual accumulation of information about atomic and small-scale behaviour. The gradual accumulation of information about atomic and small-scale behaviour",
-//       price: 230,
-//     }
-//   ];
-
 export default function AllCourses() {
     const [suggestedCourses,setSuggestedCourses] = useState([])
-    
+
     useEffect(() => {
         axios.get("https://itlive.introdevs.site/api/courses").then( res => {
         setSuggestedCourses(res.data.data)
