@@ -22,6 +22,8 @@ export default function Header() {
   const [isUzbek, setIsUzbek] = useState(true);
 
   const { isAuth } = useContext(ProjectContext);
+  let userName = window.localStorage.getItem("data")
+  userName = userName ? userName.name : ""
 
   const location = useLocation();
 
@@ -109,7 +111,7 @@ export default function Header() {
               {isAuth ? (
                 <div className="flex items-center gap-4">
                   <div className="hidden md:block">
-                    <h2 className="text-lg font-semibold">John Doe</h2>
+                    <h2 className="text-lg font-semibold">{userName}</h2>
                     <p className=" text-mutedtxt text-sm">Lorem, ipsum dolor.</p>
                   </div>
                   <Avatar

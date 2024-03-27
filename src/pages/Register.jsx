@@ -6,6 +6,7 @@ import axios from "axios";
 
 
 export default function Register() {
+  
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
@@ -14,13 +15,6 @@ export default function Register() {
 
   const data = { name, phone, pass, r_pass};  
 
-
-
-
-
-
-
-  
   const navigate = useNavigate();
 
   const onsubmit = (e) => {

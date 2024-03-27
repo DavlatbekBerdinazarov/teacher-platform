@@ -6,9 +6,18 @@ import Consultation from "../components/HomePageComponenets/Consultation";
 import RankingTeachers from "../components/HomePageComponenets/RankingTeachers";
 import Home from "../components/HomePageComponenets/Home";
 import { ProjectContext } from "../layout/MainLayout";
+import { jwtDecode } from "jwt-decode";
 
 export default function HomePage() {
   let token = window.localStorage.getItem("accessToken");
+  // const decode = jwtDecode(token)
+
+  // console.log("token tekshirish", decode)
+
+//   const accessToken = localStorage.getItem('accessToken');
+// if (accessToken && new Date(accessToken.exp * 1000) < new Date()) {
+//   localStorage.removeItem('accessToken');
+// }
   const { setIsAuth } = useContext(ProjectContext);
 
   if (token) {
