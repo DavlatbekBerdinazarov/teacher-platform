@@ -22,9 +22,9 @@ export default function CoursesPage() {
       {/* courses */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-8">
         <div className="p-4 flex flex-wrap gap-4 items-end shadow-lg rounded-xl mb-4">
-          <div class="w-full sm:w-4/5 xl:w-2/5">
-            <div class="relative w-full min-w-[200px] h-10">
-              <div class="absolute grid w-5 h-5 place-items-center text-blue-gray-500 top-2/4 right-3 -translate-y-2/4">
+          <div className="w-full sm:w-4/5 xl:w-2/5">
+            <div className="relative w-full min-w-[200px] h-10">
+              <div className="absolute grid w-5 h-5 place-items-center text-blue-gray-500 top-2/4 right-3 -translate-y-2/4">
                 <IoSearch />
               </div>
               <Input

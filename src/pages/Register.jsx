@@ -39,7 +39,7 @@ export default function Register() {
         phone: "+" + phone,
       })
       .then((res) => {
-        if (res.status === 201) {
+        if (res.status === 201) {   
           window.localStorage.setItem("data", JSON.stringify(data));
           navigate("/verify-code");
         }
@@ -73,10 +73,10 @@ export default function Register() {
                 {/* error alert */}
                 {errorMessage ? (
                   <div
-                    class="bg-red-100 text-red-700 px-4 py-3 rounded relative"
+                    className="bg-red-100 text-red-700 px-4 py-3 rounded relative"
                     role="alert"
                   >
-                    <span class="block sm:inline">{errorMessage}</span>
+                    <span className="block sm:inline">{errorMessage}</span>
                   </div>
                 ) : null}
 
@@ -125,17 +125,17 @@ export default function Register() {
                     }}
                   />
                 </div>
-                <div class="w-full">
+                <div className="w-full">
                   <label
                     className=" text-plum font-semibold"
                     htmlFor="password"
                   >
                     Parol
                   </label>
-                  <div class="relative w-full bg-white">
+                  <div className="relative w-full bg-white">
                     <div
                       onClick={() => setIsEyeOff((prev) => !prev)}
-                      class="absolute grid w-8 h-8 place-items-center text-plum top-2/4 right-6 -translate-y-2/4 z-40"
+                      className="absolute grid w-8 h-8 place-items-center text-plum top-2/4 right-6 -translate-y-2/4 z-40"
                     >
                       {isEyeOff ? (
                         <IoEyeOff className="text-2xl" />
@@ -159,17 +159,17 @@ export default function Register() {
                     />
                   </div>
                 </div>
-                <div class="w-full">
+                <div className="w-full">
                   <label
                     className=" text-plum font-semibold"
                     htmlFor="password_R"
                   >
                     Parolni tasdiqlash
                   </label>
-                  <div class="relative w-full bg-white">
+                  <div className="relative w-full bg-white">
                     <div
                       onClick={() => setIsEyeOff_R((prev) => !prev)}
-                      class="absolute grid w-8 h-8 place-items-center text-plum top-2/4 right-6 -translate-y-2/4 z-40"
+                      className="absolute grid w-8 h-8 place-items-center text-plum top-2/4 right-6 -translate-y-2/4 z-40"
                     >
                       {isEyeOff_R ? (
                         <IoEyeOff className="text-2xl" />

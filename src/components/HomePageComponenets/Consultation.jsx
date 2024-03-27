@@ -4,9 +4,37 @@ import { PatternFormat } from "react-number-format";
 
 import { Textarea, Button } from "@material-tailwind/react";
 import { Checkbox } from "@material-tailwind/react";
+import axios from "axios";
 
 export default function Consultation() {
   const [phone, setPhone] = useState("");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+
+  const messageData = { phone, name, message };
+  
+  const onSubmit = (e) => {
+    e.preventDefault();
+    axios
+     .post("https://itlive.introdevs.site/api/contact", {
+        phone: phone,
+        fullName: name,
+        message: message,
+      })
+     .then((res) => {
+        if (res.status === 201) {
+          console.log(res);
+        }
+        setPhone("");
+        setName("");
+        setMessage("");
+      })
+     .catch((err) => {
+        console.log(err);
+      });
+
+  };
+
   return (
     <div className="w-full h-[400px] xl:h-[373px] relative flex items-center justify-center">
       <img
@@ -20,7 +48,7 @@ export default function Consultation() {
           <h1 className="text-plum font-bold text-xl">
             Ma'lumotlaringizni kiriting!
           </h1>
-          <form>
+          <form onSubmit={onSubmit}>
             <div className="flex flex-col xl:flex-row justify-between my-1 gap-3">
               <div className="">
                 <Input
@@ -34,6 +62,8 @@ export default function Consultation() {
                   containerProps={{
                     className: "h-10 ",
                   }}
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
                 />
               </div>
               <div className="">
@@ -71,6 +101,8 @@ export default function Consultation() {
                 containerProps={{
                   className: "h-12 w-full",
                 }}
+                onChange={(e) => setMessage(e.target.value)}
+                value={message}
               />
             </div>
 
@@ -81,7 +113,7 @@ export default function Consultation() {
                   defaultChecked
                 />
                 <p className="text-sm text-mutedtxt">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
+                  Lorem ipsum dolor sit amet
                 </p>
               </div>
               <Button className="bg-cherry text-white" type="submit">
