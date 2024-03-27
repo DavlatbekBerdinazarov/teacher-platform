@@ -6,7 +6,6 @@ import { ProjectContext } from "../layout/MainLayout";
 import axios from "axios";
 
 export default function EnterCodePage() {
-  const [phone, setPhone] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [otp, setOtp] = useState(new Array(6).fill(""));
 
@@ -37,9 +36,7 @@ export default function EnterCodePage() {
               password: data.pass,
             })
             .then((res) => {
-              console.log("register code =>",res);
               if (res.status === 201) {
-                console.log(res);
                 window.localStorage.setItem(
                   "accessToken",
                   res.data.accessToken
@@ -75,11 +72,10 @@ export default function EnterCodePage() {
               </h1>
               <p>
                 Biz sizga faollashtiruvchi kalit bilan kodni yubordik{" "}
-                <span className="font-semibold text-plum">+{enteredPhone}</span>{" "}
+                <span className="font-semibold text-plum">{phone1}</span>{" "}
                 raqamiga
               </p>
               <div className=" h-[470px] my-8">
-              {/* alert error */}
               {
                 errorMessage ? (
                   <div class="bg-red-100 text-red-700 px-4 py-3 rounded relative" role="alert">

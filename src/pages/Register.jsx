@@ -8,6 +8,7 @@ import { IoEyeOff } from "react-icons/io5";
 import { IoEye } from "react-icons/io5";
 
 export default function Register() {
+  
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
@@ -17,8 +18,6 @@ export default function Register() {
   const [isEyeOff_R, setIsEyeOff_R] = useState(true);
 
   const { setEnteredPhone } = useContext(ProjectContext);
-
-  const data = { name, phone, pass, r_pass };
 
   const navigate = useNavigate();
 

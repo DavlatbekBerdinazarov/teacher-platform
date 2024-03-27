@@ -24,6 +24,8 @@ export default function Header() {
   const [isUzbek, setIsUzbek] = useState(true);
 
   const { isAuth } = useContext(ProjectContext);
+  let userName = window.localStorage.getItem("data")
+  userName = userName ? userName.name : ""
 
   const location = useLocation();
 
