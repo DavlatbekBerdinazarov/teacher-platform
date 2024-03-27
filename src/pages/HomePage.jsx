@@ -9,6 +9,7 @@ import { ProjectContext } from "../layout/MainLayout";
 
 export default function HomePage() {
   let token = window.localStorage.getItem("accessToken");
+
   const { setIsAuth } = useContext(ProjectContext);
 
   useEffect(() => {
