@@ -12,6 +12,8 @@ import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 
+// TEACEHR SECTION
+
 function App() {
   useEffect ( () => {
 
