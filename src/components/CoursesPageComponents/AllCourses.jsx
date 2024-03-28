@@ -4,18 +4,23 @@ import { Link } from "react-router-dom";
 
 export default function AllCourses() {
     const [suggestedCourses,setSuggestedCourses] = useState([])
+    const [coursesError, setCoursesError] = useState(false)
 
     useEffect(() => {
         axios.get("https://itlive.introdevs.site/api/courses").then( res => {
         setSuggestedCourses(res.data.data)
-        console.log(res.data.data)
+    }).catch(error => {
+      console.log(error)
+      setCoursesError(error)
     })
     })
     
   return (
     <div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 border-1">
-          {suggestedCourses.map((video) => {
+          {
+          coursesError ? "videolar yuklanmoqda" :
+          suggestedCourses.map((video) => {
             return (
               <Link to={`/courses/single/${video.id}`} key={video.id} className=" col-span-1 py-3 sm:p-5 rounded-md flex flex-col justify-center bg-white shadow-xl">
                 <img
