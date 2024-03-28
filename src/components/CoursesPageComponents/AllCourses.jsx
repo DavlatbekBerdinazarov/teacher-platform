@@ -9,6 +9,7 @@ export default function AllCourses() {
   const [loading, setLoading] = useState(true); // State to manage loading
   let [color, setColor] = useState("#FF0000");
 
+  // all changed
 
   useEffect(() => {
     axios
