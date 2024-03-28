@@ -7,7 +7,6 @@ import RankingTeachers from "../components/HomePageComponenets/RankingTeachers";
 import Home from "../components/HomePageComponenets/Home";
 import { ProjectContext } from "../layout/MainLayout";
 
-
 export default function HomePage() {
   let token = window.localStorage.getItem("accessToken");
 

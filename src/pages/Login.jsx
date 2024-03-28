@@ -120,7 +120,7 @@ export default function Login() {
 
                 <div className="flex items-center justify-between z-10">
                   <Link className=" text-plum font-semibold">
-                    Parolni unutdizmi?
+                    Parolni unutdizmi ?
                   </Link>
                   <button
                     onClick={LoginClick}

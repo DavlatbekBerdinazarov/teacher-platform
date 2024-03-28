@@ -31,11 +31,12 @@ export default function EnterCodePage() {
           axios
             .post("https://itlive.introdevs.site/api/auth/register", {
               phone: "+" + phone1,
-              otp:otp.join(""),
+              otp: otp.join(""),
               fullName: data.name,
               password: data.pass,
             })
             .then((res) => {
+              console.log("register code =>",res);
               if (res.status === 201) {
                 window.localStorage.setItem(
                   "accessToken",
@@ -76,28 +77,31 @@ export default function EnterCodePage() {
                 raqamiga
               </p>
               <div className=" h-[470px] my-8">
+              {/* alert error */}
               {
                 errorMessage ? (
                   <div class="bg-red-100 text-red-700 px-4 py-3 rounded relative" role="alert">
                       <span class="block sm:inline">{errorMessage}</span>
                   </div>
-                ) : null
-              }
+                ) : null}
                 <label className="font-semibold ">
                   Smsdan kelgan kodni kiriting
                 </label>
-                <OTPField otp={otp} setOtp={setOtp}/>
+                <OTPField otp={otp} setOtp={setOtp} />
                 <div className="my-6">
                   <p>
                     Kodni haliyam olmadingizmi ?{" "}
-                    <span className="text-plum font-semibold">
+                    <span
+                      onClick={() => history.back()}
+                      className="text-plum font-semibold"
+                    >
                       Qayta jo'natish
                     </span>
                   </p>
                 </div>
                 <div className="flex items-center justify-between z-10">
                   <button
-                    onClick={ HandleClick }
+                    onClick={HandleClick}
                     className="bg-plum mt-3 text-white w-full py-4 rounded-md active:text-deep-orange-50"
                   >
                     Kodni tasdiqlash
