@@ -9,7 +9,28 @@ import SingleCoursePage from "./pages/SingleCoursePage";
 import ContactPage from "./pages/ContactPage";
 import EnterCodePage from "./pages/EnterCodePage";
 import NotFound from "./pages/NotFound";
+import { useEffect } from "react";
+import { jwtDecode } from "jwt-decode";
+
 function App() {
+  useEffect ( () => {
+
+    
+    let token = window.localStorage.getItem("accessToken");
+  
+
+    let decoded = jwtDecode('Bearer ' + token);
+    let currentUnixTime = Math.floor(Date.now() / 1000);
+
+    let  timeDifference = decoded.exp - currentUnixTime;
+
+    if (timeDifference > 0) {
+      console.log('JWT hali amal qilishga ruhsat berilgan');
+    } else {
+      console.log('JWT muddati tugagan');
+      localStorage.removeItem('accessToken');
+    }
+  } )
   return (
     <>
       <Router>
