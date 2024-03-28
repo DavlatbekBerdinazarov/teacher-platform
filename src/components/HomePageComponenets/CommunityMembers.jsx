@@ -85,9 +85,9 @@ export default function CommunityMembers() {
           return (
             <SwiperSlide
               key={teacher.id}
-              className="h-[247px] w-[190px] rounded-xl border-[2px] border-[#EAEDEE] bg-white p-5 flex flex-col justify-center items-center gap-4"
+              className="h-[287px] w-[190px] rounded-xl border-[2px] border-[#EAEDEE] bg-white p-2 flex flex-col justify-center items-center gap-4"
             >
-              <div className=" w-[120px] h-[120px] rounded-full">
+              <div className=" w-[128px] h-[128px] rounded-full">
                 <img
                   className="w-full h-full rounded-full object-cover"
                   src={"https://itlive.introdevs.site/files/public/" + teacher.image}
@@ -96,8 +96,8 @@ export default function CommunityMembers() {
               </div>
               <div className="text-center">
                 <h2 className="text-plum font-semibold">{teacher.fullName}</h2>
-                <h2 className="text-plum font-medium">{teacher.mentorProfile.experience} yil tajriba</h2>
-                <p>{teacher.mentorProfile.job}</p>
+                <h2 className=" text-mutedtxt font-medium text-sm"><span className="text-md font-extrabold text-plum">{teacher.mentorProfile.experience}</span> yil tajriba</h2>
+                <p className="text-sm font-semibold">{teacher.mentorProfile.job}</p>
               </div>
             </SwiperSlide>
           );
